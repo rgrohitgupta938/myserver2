@@ -37,8 +37,8 @@ app.post("/myserver1/url", async function (req, res) {
     res
       .status(401)
       .send({
-        error: error.response.statusText,
-        errorCode: error.response.status,
+        error: error.response.statusText|| "Not Found",
+        errorCode: error.response.status || 401,
       });
   }
 });
