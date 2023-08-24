@@ -5,9 +5,8 @@ app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept,X-Response-Time"
+    "Origin, X-Requested-With, Content-Type, Accept"
   );
-  res.header("Access-Control-Expose-Headers", "X-Response-Time");
   res.header(
     "Access-Control-Allow-Methods",
     "GET, POST, OPTIONS, PUT, PATCH, DELETE, HEAD"
@@ -21,7 +20,6 @@ let axios = require("axios");
 
 app.post("/myserver1/url", async function (req, res) {
   try {
-    let startTimestamp = performance.now();
     let body = req.body;
     console.log(body);
     if (body.method === "GET") {
